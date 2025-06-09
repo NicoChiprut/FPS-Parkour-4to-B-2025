@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class RespawnOnFall : MonoBehaviour
+public class RespawnNoHealth : MonoBehaviour
 {
     public float yRespawnValue;
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if (transform.position.y < yRespawnValue)
+        if (HealthManager <=0 < yRespawnValue)
         {
             SceneManager.LoadScene("FPS Parkour");
         }
