@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 
 
 public class RespawnNoHealth : MonoBehaviour
+
 {
+    public HealthManager healthManager;
     public float yRespawnValue;
 
     void Start()
     {
-
+        healthManager = FindObjectOfType<HealthManager>();
     }
 
     void Update()
     {
-        if (HealthManager <=0 < yRespawnValue)
+        if (healthManager.UpdateHealth)
         {
             SceneManager.LoadScene("FPS Parkour");
         }
