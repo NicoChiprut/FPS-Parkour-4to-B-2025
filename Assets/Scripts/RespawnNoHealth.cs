@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class RespawnNoHealth : MonoBehaviour
-
 {
     public HealthManager healthManager;
     public float yRespawnValue;
+    public float fallDamage = 1000f; // Un valor lo suficientemente alto para "matar" al caer
 
     void Start()
     {
@@ -17,10 +16,9 @@ public class RespawnNoHealth : MonoBehaviour
 
     void Update()
     {
-        if (healthManager.UpdateHealth)
+        if (transform.position.y < yRespawnValue)
         {
-            SceneManager.LoadScene("FPS Parkour");
+            healthManager.UpdateHealth(-fallDamage);
         }
-
     }
 }

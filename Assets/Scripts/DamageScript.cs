@@ -16,7 +16,7 @@ public class DamageScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (healthManager.UpdateHealth(-cost))
+            if (healthManager.UpdateHealth(cost))
             {
                 Destroy(gameObject);
             }

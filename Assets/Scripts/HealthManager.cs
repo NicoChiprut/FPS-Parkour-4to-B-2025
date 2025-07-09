@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -14,14 +15,15 @@ public class HealthManager : MonoBehaviour
 
     public bool UpdateHealth(float amount)
     {
-        if (health + amount < 0)
+        if (health - amount <= 0)
         {
             Debug.Log("Moriste");
+            SceneManager.LoadScene("FPS Parkour");
             return false;
         }
         else
         {
-            health += amount;
+            health -= amount;
             uiManager.UpdateHealthText(health.ToString());
             return true;
         }
